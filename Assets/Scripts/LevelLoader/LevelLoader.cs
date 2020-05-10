@@ -46,16 +46,16 @@ using UnityEngine.SceneManagement; /* So we can use scene manager */
 public class LevelLoader : MonoBehaviour
 {
     // #region PRIVATE VARIABLES
-    int currentSceneIndex; // The current scene (remember magic numbers are bad!)
-    [SerializeField] int timeUntilStartMenuLoads = 3; // The time until the start menu loads
+    int currentSceneIndex;
+    [SerializeField] int timeUntilSceneLoads;
     // #endregion
 
     // #region START
     // Start is called before the first frame update
     void Start()
     {
-		currentSceneIndex = SceneManager.GetActiveScene().buildIndex; // Get the position of the scene in the build index
-        LoadStart(); // Load the start scene
+		Initialize();
+        LoadStart();
     }
     // #endregion
 
@@ -63,6 +63,12 @@ public class LevelLoader : MonoBehaviour
 	/******************************************************************
 	**                     Private Subroutines                       **
 	******************************************************************/
+	private void Initialize()
+	{
+		currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+		timeUntilSceneLoads = 3;
+	}
+
 	/* If we're on the splash screen, load the start scene */
     private void LoadStart()
     {
@@ -81,7 +87,7 @@ public class LevelLoader : MonoBehaviour
            I originally thought that a return had to be at the end but it doesn't!
            This is like "Hey wait X seconds then come back and do stuff"
 		*/
-        yield return new WaitForSeconds(timeUntilStartMenuLoads);
+        yield return new WaitForSeconds(timeUntilSceneLoads);
 
         LoadNextScene();
     }
