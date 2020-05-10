@@ -13,8 +13,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Environment
+  - Enemies
   - 
   - 
   - 
@@ -40,6 +40,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Trophy
+    uniqueID: 3800539287
     locked: 0
   - name: Enemies
     uniqueID: 4225261029
