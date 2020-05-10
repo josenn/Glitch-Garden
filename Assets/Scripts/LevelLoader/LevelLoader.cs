@@ -26,7 +26,6 @@
 ******************************************************************/
 
 // This isn't actually under any copyright but I want to get in the habit of always including this
-
 // #endregion
 
 // #region USING DIRECTIVES
@@ -46,7 +45,7 @@ using UnityEngine.SceneManagement; /* So we can use scene manager */
 ******************************************************************/
 public class LevelLoader : MonoBehaviour
 {
-    // #region VARIABLES
+    // #region PRIVATE VARIABLES
     int currentSceneIndex; // The current scene (remember magic numbers are bad!)
     [SerializeField] int timeUntilStartMenuLoads = 3; // The time until the start menu loads
     // #endregion
@@ -95,7 +94,7 @@ public class LevelLoader : MonoBehaviour
 	// #endregion
 
 	// #region TODOS
-	// TODO add fade out between scene loads
+	// TODO add fade in/out between scene loads
 	// #endregion
 
 } // Class LevelLoader
