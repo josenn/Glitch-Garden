@@ -17,7 +17,7 @@
 **                                                               **
 **      Description:         Spawns Attcakers                    **
 **                                                               **
-**                                                               **
+**      This class is used for spawning the attackers            **
 **                                                               **
 **                                                               **
 **                                                               **
@@ -44,6 +44,9 @@ using UnityEngine;
 public class AttackerSpawner : MonoBehaviour
 {
 	// #region PRIVATE VARIABLES
+	/******************************************************************
+	**                     Private Variables                         **
+	******************************************************************/
 	bool spawnAttackers;
 	float minTimeUntilSpawn;
 	float maxTimeUntilSpawn;
@@ -51,7 +54,9 @@ public class AttackerSpawner : MonoBehaviour
 	// #endregion
 
 	// #region START
-    // Start is called before the first frame update
+	/******************************************************************
+	**                     Unity Subroutines                         **
+	******************************************************************/
     IEnumerator Start()
 	{
 		Initialize();
@@ -64,7 +69,6 @@ public class AttackerSpawner : MonoBehaviour
 	// #endregion
 
 	// #region UPDATE
-    // Update is called once per frame
     void Update()
     {
 
@@ -72,18 +76,34 @@ public class AttackerSpawner : MonoBehaviour
 	// #endregion
 
 	// #region PRIVATE SUBROUTINES
-	void Initialize()
+	/******************************************************************
+	**                     Private Subroutines                       **
+	******************************************************************/
+	/*
+     * PURPOSE : Initializes variables
+     *  PARAMS : None
+     * RETURNS : void
+     *   NOTES : Acts as a sort of constructor
+	 *           (since using constructors on MonoBehaviour inheritors is a no-no)
+	 */
+	private void Initialize()
 	{
 		spawnAttackers = true;
 		minTimeUntilSpawn = 0;
 		maxTimeUntilSpawn = 5;
 	}
 
-	void SpawnAttackers()
+	/*
+     * PURPOSE : Spawns Attackers
+     *  PARAMS : None
+     * RETURNS : void
+     *   NOTES :
+	 *
+	 */
+	private void SpawnAttackers()
 	{
 		Instantiate(attackerPrefab, transform.position, Quaternion.identity);
 	}
 	// #endregion
-
 } // AttackerSpawner
 // #endregion
