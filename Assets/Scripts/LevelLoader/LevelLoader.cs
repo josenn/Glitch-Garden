@@ -46,12 +46,17 @@ using UnityEngine.SceneManagement; /* So we can use scene manager */
 public class LevelLoader : MonoBehaviour
 {
     // #region PRIVATE VARIABLES
+	/******************************************************************
+	**                     Private variables                         **
+	******************************************************************/
     int currentSceneIndex;
     [SerializeField] int timeUntilSceneLoads;
     // #endregion
 
+	/******************************************************************
+	**                     Unity Subroutines                         **
+	******************************************************************/
     // #region START
-    // Start is called before the first frame update
     void Start()
     {
 		Initialize();
@@ -63,13 +68,26 @@ public class LevelLoader : MonoBehaviour
 	/******************************************************************
 	**                     Private Subroutines                       **
 	******************************************************************/
+	/*
+	 * PURPOSE : Initializes variables
+	 *  PARAMS : None
+	 * RETURNS : void
+	 *   NOTES : Acts as a sort of constructor
+	 *           (since using constructors on MonoBehaviour inheritors is a no-no)
+	 */
 	private void Initialize()
 	{
 		currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 		timeUntilSceneLoads = 3;
 	}
 
-	/* If we're on the splash screen, load the start scene */
+	/*
+	 * PURPOSE : Loads the start scene
+	 *  PARAMS : None
+	 * RETURNS : void
+	 *   NOTES :
+	 *
+	 */
     private void LoadStart()
     {
         if (currentSceneIndex == 0)
@@ -78,9 +96,14 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-	/* Loads the next scene after a certain amount of seconds
-	   Makes it feel more organic
-	*/
+	/*
+	 * PURPOSE : Loads the next scene after a certain amount of seconds
+	 *  PARAMS : None
+	 * RETURNS : void
+	 *  SUBROUTINE CALLS: LoadNextScene()
+	 *   NOTES : Makes it feel more organic
+	 *
+	 */
     private IEnumerator WaitTimeForSceneLoad()
     {
         /* Suspend the coroutine exectuion
@@ -92,7 +115,13 @@ public class LevelLoader : MonoBehaviour
         LoadNextScene();
     }
 
-	/* Load the next scene */
+	/*
+	 * PURPOSE : Loads the next scene
+	 *  PARAMS : None
+	 * RETURNS : void
+	 *   NOTES :
+	 *
+	 */
     private void LoadNextScene()
     {
         SceneManager.LoadScene(currentSceneIndex + 1);
@@ -102,6 +131,5 @@ public class LevelLoader : MonoBehaviour
 	// #region TODOS
 	// TODO add fade in/out between scene loads
 	// #endregion
-
 } // Class LevelLoader
 // #endregion
