@@ -9,10 +9,10 @@ In this version I added the first level as well as the main game background
 which I also made a little coordinate system out of!
 
 # Version 0.3
-## <u>Animation</u>
+## Animation
 ### Lizard Enemy
-	Added a Lizard enemy with a walk and jump animation<br>
-	I would normally worry about functionality first bu this is experimental
+	Added a Lizard enemy with a walk and jump animation
+	I would normally worry about functionality first but this is experimental
 	And I haven't done anything with animation yet
 ### Trophy
 	Added a trophy object with some animation (the top part rotates while the bottom is scaled up and down)
@@ -21,3 +21,7 @@ which I also made a little coordinate system out of!
 	Began adding and playing with enemy movement (so far using transform.Translate)
 ### Spawner
 	Created an enemy spawner and started spawning enemies using a coroutine (currently has no end condition)
+## Animation Events
+### Lizard
+	Added an animation event for setting the movement speed when a lizard jumps and when a lizard begins walking.
+	1 when walking but 0 while still jumping (this prevents the lizard from sliding slightly while jumping) applicable to other attackers in the future potentially
