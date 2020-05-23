@@ -44,8 +44,14 @@ TagManager:
   - name: Trophy
     uniqueID: 3800539287
     locked: 0
-  - name: Enemies
+  - name: Attackers
     uniqueID: 4225261029
+    locked: 0
+  - name: Defenders
+    uniqueID: 2177101195
+    locked: 0
+  - name: Projectiles
+    uniqueID: 2721501405
     locked: 0
   - name: Trees
     uniqueID: 1482482091
