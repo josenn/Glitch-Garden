@@ -21,7 +21,11 @@ which I also made a little coordinate system out of!
 	Began adding and playing with enemy movement (so far using transform.Translate)
 ### Spawner
 	Created an enemy spawner and started spawning enemies using a coroutine (currently has no end condition)
+### Cactus
+	Added the first defender, a Cactus, with an idle and attack animation
 ## Animation Events
 ### Lizard
 	Added an animation event for setting the movement speed when a lizard jumps and when a lizard begins walking.
 	1 when walking but 0 while still jumping (this prevents the lizard from sliding slightly while jumping) applicable to other attackers in the future potentially
+### Cactus
+	Began an animation event for firing projectiles
