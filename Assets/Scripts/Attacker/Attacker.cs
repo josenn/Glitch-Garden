@@ -1,4 +1,4 @@
-// #region CLASS DESCRIPTION
+#region CLASS DESCRIPTION
 /******************************************************************
 **                                                               **
 **              Jonathan Renn                                    **
@@ -21,57 +21,48 @@
 **     This script controls the attackers that are in the game   **
 **     Attackers are the same thing as enemies                   **
 **     Variables and subroutine descriptions will be present     **
-**     with said variables and subroutines                       **
+**     with said variables and FUNCTIONS                       **
 **                                                               **
 **                                                               **
 ******************************************************************/
 
 // This isn't actually under any copyright but I want to get in the habit of always including this
-// #endregion
 
-// #region USING DIRECTIVES
-/******************************************************************
-**                      Using Directives                         **
-******************************************************************/
+#endregion // CLASS DESCRIPTION
+
+#region USING DIRECTIVES
+
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// #endregion
 
-// #region ATTACKER CLASS DEFINITION
-/******************************************************************
-**                     Class Definition                          **
-******************************************************************/
+#endregion // USING DIRECTIVES
+
+#region ATTACKER CLASS DEFINITION
 public class Attacker : MonoBehaviour
 {
-	// #region PRIVATE VARIABLES
-	/******************************************************************
-	**                     Private Variables                         **
-	******************************************************************/
-	private float currentSpeed;
-	// #endregion
+	#region PRIVATE VARIABLES
 
-	/******************************************************************
-	**                     Unity Subroutines                         **
-	******************************************************************/
-	// #region START
+	private float currentSpeed;
+
+	#endregion // PRIVATE VARIABLES
+
+	#region UNITY FUNCTIONS
+
     void Start()
     {
 		Initialize();
     }
-	// #endregion
-
-	// #region UPDATE
+	
     void Update()
     {
 		transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
     }
-	// #endregion
 
-	// #region PUBLIC SUBROUTINES
-	/******************************************************************
-	**                     Public Subroutines                        **
-	******************************************************************/
+	#endregion // UNITY FUNCTIONS
+
+	#region PUBLIC FUNCTIONS
+
 	/*
 	 * PURPOSE : Sets attacker movement speed
 	 *  PARAMS : Speed (float)
@@ -84,12 +75,10 @@ public class Attacker : MonoBehaviour
 		//Debug.Log("Setting the movement speed");
 		currentSpeed = speed;
 	}
-	// #endregion
+	#endregion // PUBLIC FUNCTIONS
 
-	// #region PRIVATE SUBROUTINES
-	/******************************************************************
-	**                     Private Subroutines                       **
-	******************************************************************/
+	#region PRIVATE FUNCTIONS
+
 	/*
 	 * PURPOSE : Initializes variables
 	 *  PARAMS : None
@@ -101,6 +90,9 @@ public class Attacker : MonoBehaviour
 	{
 		currentSpeed = 1f;
 	}
-	// #endregion
+
+	#endregion // PRIVATE FUNCTIONS
+
 } // Class Attacker
-// #endregion
+
+ #endregion // CLASS DEFINITION

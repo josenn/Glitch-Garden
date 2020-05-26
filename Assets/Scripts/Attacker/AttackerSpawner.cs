@@ -1,4 +1,4 @@
-// #region CLASS DESCRIPTION
+#region CLASS DESCRIPTION
 /******************************************************************
 **                                                               **
 **              Jonathan Renn                                    **
@@ -26,37 +26,30 @@
 ******************************************************************/
 
 // This isn't actually under any copyright but I want to get in the habit of always including this
-// #endregion
 
-// #region USING DIRECTIVES
-/******************************************************************
-**                      Using Directives                         **
-******************************************************************/
+#endregion // CLASS DESCRIPTION
+
+#region USING DIRECTIVES
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// #endregion
 
-// #region CLASS DEFINITION
-/******************************************************************
-**                     Class Definition                          **
-******************************************************************/
+#endregion // USING DIRECTIVES
+
+#region CLASS DEFINITION
 public class AttackerSpawner : MonoBehaviour
 {
-	// #region PRIVATE VARIABLES
-	/******************************************************************
-	**                     Private Variables                         **
-	******************************************************************/
+	#region PRIVATE VARIABLES
+
 	bool spawnAttackers;
 	float minTimeUntilSpawn;
 	float maxTimeUntilSpawn;
 	[SerializeField] Attacker attackerPrefab;
-	// #endregion
 
-	// #region START
-	/******************************************************************
-	**                     Unity Subroutines                         **
-	******************************************************************/
+	#endregion // PRIVATE VARIABLES
+
+	#region UNITY FUNCTIONS
     IEnumerator Start()
 	{
 		Initialize();
@@ -66,19 +59,16 @@ public class AttackerSpawner : MonoBehaviour
 			SpawnAttackers();
 		}
 	}
-	// #endregion
 
-	// #region UPDATE
     void Update()
     {
 
     }
-	// #endregion
 
-	// #region PRIVATE SUBROUTINES
-	/******************************************************************
-	**                     Private Subroutines                       **
-	******************************************************************/
+	#endregion // UNITY FUNCTIONS
+
+	#region PRIVATE FUNCTIONS
+
 	/*
      * PURPOSE : Initializes variables
      *  PARAMS : None
@@ -104,6 +94,9 @@ public class AttackerSpawner : MonoBehaviour
 	{
 		Instantiate(attackerPrefab, transform.position, Quaternion.identity);
 	}
-	// #endregion
-} // AttackerSpawner
-// #endregion
+
+	#endregion // PRIVATE SUBROTINES
+	
+} // Class AttackerSpawner
+
+#endregion // CLASS DEFINITION
