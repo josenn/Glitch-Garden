@@ -28,4 +28,10 @@ which I also made a little coordinate system out of!
 	Added an animation event for setting the movement speed when a lizard jumps and when a lizard begins walking.
 	1 when walking but 0 while still jumping (this prevents the lizard from sliding slightly while jumping) applicable to other attackers in the future potentially
 ### Cactus
-	Began an animation event for firing projectiles
+	Created an animation event for instantiating projectiles and a new script for turning things into projectiles
+# Scripts
+### Health
+	Created a health script for controlling health and dealing damage
+	Implemented enemy health and damage so enemies can now be destroyed
+# Particle Systems
+	Began work on a deathFX Particle System
