@@ -1,4 +1,5 @@
-﻿// #region CLASS DESCRIPTION
+﻿#region CLASS DESCRIPTION
+
 /******************************************************************
 **                                                               **
 **              Jonathan Renn                                    **
@@ -26,48 +27,43 @@
 ******************************************************************/
 
 // This isn't actually under any copyright but I want to get in the habit of always including this
-// #endregion
 
-// #region USING DIRECTIVES
-/******************************************************************
-**                      Using Directives                         **
-******************************************************************/
+#endregion // CLASS DEFINITION
+
+
+#region USING DIRECTIVES
+
 using System;
 using System.Collections; /* IEnumertor is declared in this namespace */
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement; /* So we can use scene manager */
-// #endregion
 
-// #region LEVELLOADER CLASS DEFINITION
-/******************************************************************
-**                     Class Definition                          **
-******************************************************************/
+#endregion // USING DIRECTIVES
+
+
+#region LEVELLOADER CLASS DEFINITION
 public class LevelLoader : MonoBehaviour
 {
-    // #region PRIVATE VARIABLES
-	/******************************************************************
-	**                     Private variables                         **
-	******************************************************************/
+	#region PRIVATE VARIABLES
+
     int currentSceneIndex;
     [SerializeField] int timeUntilSceneLoads;
-    // #endregion
 
-	/******************************************************************
-	**                     Unity Subroutines                         **
-	******************************************************************/
-    // #region START
+    #endregion // PRIVATE VARIABLES
+
+    #region UNITY FUNCTIONS
+
     void Start()
     {
 		Initialize();
         LoadStart();
     }
-    // #endregion
 
-	// #region PRIVATE SUBROUTINES
-	/******************************************************************
-	**                     Private Subroutines                       **
-	******************************************************************/
+    #endregion // UNITY FUNCTIONS
+
+	#region PRIVATE FUNCTIONS
+	
 	/*
 	 * PURPOSE : Initializes variables
 	 *  PARAMS : None
@@ -100,7 +96,7 @@ public class LevelLoader : MonoBehaviour
 	 * PURPOSE : Loads the next scene after a certain amount of seconds
 	 *  PARAMS : None
 	 * RETURNS : void
-	 *  SUBROUTINE CALLS: LoadNextScene()
+	 *  FUNCTION CALLS: LoadNextScene()
 	 *   NOTES : Makes it feel more organic
 	 *
 	 */
@@ -126,10 +122,15 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
-	// #endregion
 
-	// #region TODOS
+	#endregion // PRIVATE FUNCTIONS
+
+	#region TODOS
+
 	// TODO add fade in/out between scene loads
-	// #endregion
+
+	#endregion // TODOS
+
 } // Class LevelLoader
-// #endregion
+
+#endregion // CLASS DEFINITION
