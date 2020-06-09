@@ -64,26 +64,16 @@ public class LevelLoader : MonoBehaviour
 
 	#region PRIVATE FUNCTIONS
 	
-	/*
-	 * PURPOSE : Initializes variables
-	 *  PARAMS : None
-	 * RETURNS : void
-	 *   NOTES : Acts as a sort of constructor
-	 *           (since using constructors on MonoBehaviour inheritors is a no-no)
-	 */
+	/// <summary>Initializes variables</summary>
+	/// <br />
+	/// <remarks> Acts as a sort of constructor</remarks>
 	private void Initialize()
 	{
 		currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 		timeUntilSceneLoads = 3;
 	}
 
-	/*
-	 * PURPOSE : Loads the start scene
-	 *  PARAMS : None
-	 * RETURNS : void
-	 *   NOTES :
-	 *
-	 */
+	/// <summary>Loads the start scene</summary>
     private void LoadStart()
     {
         if (currentSceneIndex == 0)
@@ -92,32 +82,19 @@ public class LevelLoader : MonoBehaviour
         }
     }
 
-	/*
-	 * PURPOSE : Loads the next scene after a certain amount of seconds
-	 *  PARAMS : None
-	 * RETURNS : void
-	 *  FUNCTION CALLS: LoadNextScene()
-	 *   NOTES : Makes it feel more organic
-	 *
-	 */
+	/// <summary>Loads the next scene after a certain amount of seconds<summary>
+	/// <br />
+	/// <remarks>This function is a Coroutine</remarks>
+	/// <br />
+	/// <returns>WaitForSeconds()</returns>
     private IEnumerator WaitTimeForSceneLoad()
     {
-        /* Suspend the coroutine exectuion
-           I originally thought that a return had to be at the end but it doesn't!
-           This is like "Hey wait X seconds then come back and do stuff"
-		*/
-        yield return new WaitForSeconds(timeUntilSceneLoads);
+        yield return new WaitForSeconds(timeUntilSceneLoads); // Delay scene load
 
         LoadNextScene();
     }
 
-	/*
-	 * PURPOSE : Loads the next scene
-	 *  PARAMS : None
-	 * RETURNS : void
-	 *   NOTES :
-	 *
-	 */
+	/// <summary>Loads the next scene</summary>
     private void LoadNextScene()
     {
         SceneManager.LoadScene(currentSceneIndex + 1);

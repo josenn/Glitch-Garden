@@ -37,7 +37,6 @@ using UnityEngine;
 
 #endregion // USING DIRECTIVES
 
-
 #region DEFENDER CLASS DEFINITION
 public class Defender : MonoBehaviour
 {

@@ -1,4 +1,4 @@
-// #region CLASS DESCRIPTION
+#region CLASS DESCRIPTION
 /******************************************************************
 **                                                               **
 **              Jonathan Renn                                    **
@@ -27,64 +27,53 @@
 ******************************************************************/
 
 // This isn't actually under any copyright but I want to get in the habit of always including this
-// #endregion
 
-// #region USING DIRECTIVES
-/******************************************************************
-**                      Using Directives                         **
-******************************************************************/
+#endregion
+
+#region USING DIRECTIVES
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// #endregion
 
-// #region SHOOTER CLASS DEFINITION
-/******************************************************************
-**                     Class Definition                          **
-******************************************************************/
+#endregion
+
+#region SHOOTER CLASS DEFINITION
+
 public class Shooter : MonoBehaviour
 {
-	// #region PRIVATE VARIABLES
-	/******************************************************************
-	**                     Private Variables                         **
-	******************************************************************/
+	#region PRIVATE VARIABLES
+	
 	[SerializeField] private GameObject projectile, gun; // Might make this another type in the future to tighten it up
-	// #endregion
 
-	/******************************************************************
-	**                     Unity Subroutines                         **
-	******************************************************************/
-	// #region START
+	#endregion
+
+	#region UNITY FUNCTIONS
+
     void Start()
     {
 
     }
-	// #endregion
 
-	// #region UPDATE
     void Update()
     {
 
     }
-	// #endregion
+	
+	#endregion
 
-	// #region PRIVATE SUBROUTINES
-	/******************************************************************
-	**                     Private Subroutines                       **
-	******************************************************************/
+	#region PRIVATE FUNCTIONS
 
-	/*
-	 * PURPOSE : Instantiate projectile
-	 *  PARAMS : None
-	 * RETURNS : void
-	 *   NOTES : Called from an animation event
-	 *
-	 */
+	/// <summary>Instantiates projectile</summary>
+	/// <br />
+	/// <remarks>Called from animation event</remarks>
 	private void MakeProjectile()
 	{
 		//Debug.Log("Fire!");
 		Instantiate(projectile, gun.transform.position, Quaternion.identity);
 	}
-	// #endregion
-} // Shooter
-// #endregion
+
+	#endregion
+} // Class Shooter
+
+#endregion

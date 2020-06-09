@@ -39,9 +39,10 @@ using UnityEngine;
 #endregion // USING DIRECTIVES
 
 #region PROJECTILE CLASS DEFINITION
+
 public class Projectile : MonoBehaviour
 {
-	 #region PRIVATE VARIABLES
+	#region PRIVATE VARIABLES
 
 	private float projectileSpeed;
 	private float rotationSpeed;
@@ -83,13 +84,9 @@ public class Projectile : MonoBehaviour
 
 	#region PRIVATE FUNCTIONS
 
-	/*
-	 * PURPOSE : Initializes variables
-	 *  PARAMS : None
-	 * RETURNS : void
-	 *   NOTES : Acts as a sort of constructor
-	 *           (since using constructors on MonoBehaviour inheritors is a no-no)
-	 */
+	/// <summary>Initializes variables</summary>
+	/// <br />
+	/// <remarks> Acts as a sort of constructor</remarks>
 	private void Initialize()
 	{
 		projectileSpeed = 5.0f;
@@ -97,13 +94,7 @@ public class Projectile : MonoBehaviour
 		damage = 100.0f;
 	}
 	
-	/*
-	 * PURPOSE : Fire projectile
-	 *  PARAMS : None
-	 * RETURNS : void
-	 *   NOTES :
-	 *
-	 */
+	/// <summary>Fires projectile</summary>
 	private void Fire()
 	{
 		//Debug.Log("Firing!");

@@ -56,39 +56,40 @@ public class Attacker : MonoBehaviour
 	
     void Update()
     {
-		transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
+		MoveAttacker();
     }
 
 	#endregion // UNITY FUNCTIONS
 
 	#region PUBLIC FUNCTIONS
 
-	/*
-	 * PURPOSE : Sets attacker movement speed
-	 *  PARAMS : Speed (float)
-	 * RETURNS : void
-	 *   NOTES : Called from an animation event
-	 *
-	 */
+	/// <summary>Sets attacker movement speed</summary>
+	/// <br />
+	/// <param name= "speed">A float representing the speed to set</param>
+	/// <br />
+	/// <remarks> This function is called from an animation event</remarks>
 	public void SetMovementSpeed(float speed)
 	{
 		//Debug.Log("Setting the movement speed");
 		currentSpeed = speed;
 	}
+	
 	#endregion // PUBLIC FUNCTIONS
 
 	#region PRIVATE FUNCTIONS
 
-	/*
-	 * PURPOSE : Initializes variables
-	 *  PARAMS : None
-	 * RETURNS : void
-	 *   NOTES : Acts as a sort of constructor
-	 *           (since using constructors on MonoBehaviour inheritors is a no-no)
-	 */
+	/// <summary>Initializes variables</summary>
+	/// <br />
+	/// <remarks> Acts as a sort of constructor</remarks>
 	private void Initialize()
 	{
 		currentSpeed = 1f;
+	}
+
+	/// <summary> Moves attackers</summary>
+	private void MoveAttacker()
+	{
+		transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
 	}
 
 	#endregion // PRIVATE FUNCTIONS

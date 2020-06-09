@@ -63,6 +63,9 @@ public class Health : MonoBehaviour
 
     #region PUBLIC FUNCTIONS
 
+    /// <summary>Deals damage to an object (defender or attacker)</summary>
+    /// <br />
+    /// <param name= "damage">A float representing the damage to be dealt</param>
     public void DealDamage(float damage)
     {
         health -= damage;
@@ -78,6 +81,7 @@ public class Health : MonoBehaviour
 
     #region PRIVATE FUNCTIONS
 
+    /// <summary>Triggers deathFX when an object is destroyed</summary>
     private void TriggerDeathFX()
     {
         if(!deathFX)

@@ -45,6 +45,8 @@ public class AttackerSpawner : MonoBehaviour
 	bool spawnAttackers;
 	float minTimeUntilSpawn;
 	float maxTimeUntilSpawn;
+
+	[Tooltip("The attacker you want to spawn")]
 	[SerializeField] Attacker attackerPrefab;
 
 	#endregion // PRIVATE VARIABLES
@@ -69,13 +71,8 @@ public class AttackerSpawner : MonoBehaviour
 
 	#region PRIVATE FUNCTIONS
 
-	/*
-     * PURPOSE : Initializes variables
-     *  PARAMS : None
-     * RETURNS : void
-     *   NOTES : Acts as a sort of constructor
-	 *           (since using constructors on MonoBehaviour inheritors is a no-no)
-	 */
+	/// <summary>Initializes variables</summary>
+	/// <remarks> Acts as a sort of constructor</remarks>
 	private void Initialize()
 	{
 		spawnAttackers = true;
@@ -83,13 +80,7 @@ public class AttackerSpawner : MonoBehaviour
 		maxTimeUntilSpawn = 5;
 	}
 
-	/*
-     * PURPOSE : Spawns Attackers
-     *  PARAMS : None
-     * RETURNS : void
-     *   NOTES :
-	 *
-	 */
+	/// <summary>Spawns attackers</summary>
 	private void SpawnAttackers()
 	{
 		Instantiate(attackerPrefab, transform.position, Quaternion.identity);
