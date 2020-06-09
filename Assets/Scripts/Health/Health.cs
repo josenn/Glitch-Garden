@@ -69,11 +69,27 @@ public class Health : MonoBehaviour
 
         if(health <= 0)
         {
+            TriggerDeathFX();
             Destroy(gameObject);
         }
     }
 
     #endregion // PUBLIC FUNCTIONS
+
+    #region PRIVATE FUNCTIONS
+
+    private void TriggerDeathFX()
+    {
+        if(!deathFX)
+        {
+            Debug.Log("Death Effect not found (did you forget to add it to the gameObject?");
+            return;
+        }
+
+        Instantiate(deathFX, transform.position, Quaternion.identity);
+    }
+
+    #endregion // PRIVATE FUNCTIONS
 
 } // Class Health
 
