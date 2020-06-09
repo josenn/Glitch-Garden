@@ -347,8 +347,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9426095133536964facd9166e55af0d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defender: {fileID: 5091386399613524297, guid: c574538f4bfd75345a40d9b4addc0ee2,
-    type: 3}
 --- !u!1 &462988196
 GameObject:
   m_ObjectHideFlags: 0
@@ -496,6 +494,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5eb6363aa02f0048a66bab5ad04f3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  defenderPrefab: {fileID: 2013103200, guid: c574538f4bfd75345a40d9b4addc0ee2, type: 3}
 --- !u!1001 &530531767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -624,7 +623,6 @@ GameObject:
   - component: {fileID: 956974724}
   - component: {fileID: 956974726}
   - component: {fileID: 956974727}
-  - component: {fileID: 956974728}
   m_Layer: 5
   m_Name: Trophy
   m_TagString: Untagged
@@ -725,19 +723,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5eb6363aa02f0048a66bab5ad04f3cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &956974728
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 956974722}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a8e3894701e7cba468b63e93ad1ba3e0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  starCost: 100
+  defenderPrefab: {fileID: 7232805455442396411, guid: 7aaa002e2b7b2c345a687b9454e6d3fe,
+    type: 3}
 --- !u!1 &1108646116
 GameObject:
   m_ObjectHideFlags: 0
