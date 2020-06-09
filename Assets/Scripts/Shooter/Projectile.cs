@@ -75,9 +75,8 @@ public class Projectile : MonoBehaviour
 		if(attacker && health)
 		{
 			health.DealDamage(damage);
+			Destroy(gameObject);
 		}
-
-		Destroy(gameObject); // Should be destroyed if it collides with anything
 	}
 
 	#endregion // UNITY FUNCTIONS
