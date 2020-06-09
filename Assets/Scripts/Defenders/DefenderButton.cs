@@ -81,6 +81,8 @@ public class DefenderButton : MonoBehaviour
         }
         //Debug.Log("You have selected a defender!!");
         gameObject.GetComponent<Image>().color = buttonColor;
+
+        FindObjectOfType<DefenderSpawner>().SetSelectedDefender(defenderPrefab);
     }
 
     #endregion // UNITY FUNCTIONS
