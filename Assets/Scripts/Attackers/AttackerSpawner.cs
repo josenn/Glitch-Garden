@@ -46,13 +46,12 @@ public class AttackerSpawner : MonoBehaviour
 	float minTimeUntilSpawn;
 	float maxTimeUntilSpawn;
 
-	[Tooltip("The attacker you want to spawn")]
-	[SerializeField] Attacker attackerPrefab;
+	[SerializeField] Attacker attackerPrefab = null;
 
 	#endregion // PRIVATE VARIABLES
 
 	#region UNITY FUNCTIONS
-    IEnumerator Start()
+    private IEnumerator Start()
 	{
 		Initialize();
 		while(spawnAttackers) // No end condition yet but that's okay!
@@ -61,11 +60,6 @@ public class AttackerSpawner : MonoBehaviour
 			SpawnAttackers();
 		}
 	}
-
-    void Update()
-    {
-
-    }
 
 	#endregion // UNITY FUNCTIONS
 
@@ -83,7 +77,9 @@ public class AttackerSpawner : MonoBehaviour
 	/// <summary>Spawns attackers</summary>
 	private void SpawnAttackers()
 	{
-		Instantiate(attackerPrefab, transform.position, Quaternion.identity);
+		Attacker newAttacker = Instantiate(attackerPrefab, transform.position, Quaternion.identity) as Attacker;
+
+		newAttacker.transform.parent = transform; // Makes newAttacker the child of any AttackerSpawner
 	}
 
 	#endregion // PRIVATE SUBROTINES
