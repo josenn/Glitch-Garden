@@ -16,10 +16,10 @@
 **                                                               **
 **      Created by:          06/09/20            - JJR           **
 **                                                               **
-**      Description:         A template file                     **
-**                                                               **
-**      This file is to be used as a template for other files    **
-**      Just change the class name                               **
+**      Description:         Controls certain properties         **
+**                           of defenders                        **
+**       Controls only the star system as it relates to          **
+**       defenders at the moment                                 **
 **                                                               **
 **                                                               **
 **                                                               **
@@ -46,27 +46,36 @@ public class Defender : MonoBehaviour
 
 	#region PRIVATE VARIABLES
 
-    [Tooltip("The amount of stars a defender cost to use")]
-    [SerializeField] int starCost = 100;
-
+    [SerializeField] private int starCost = 100;
 
     #endregion // PRIVATE VARIABLES
 
     #region UNITY FUNCTIONS
 
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-
-    }
-
     #endregion // UNITY FUNCTIONS
 
     #region PUBLIC FUNCTIONS
+
+    /// <summary>Gets the amount of stars a defender costs</summary>
+    /// <br />
+    /// <returns>starCost</returns>
+    public int GetStarCost() 
+    { 
+        return starCost; 
+    }
+
+    /// <summary>Adds stars to the current star amount</summary>
+    /// <br />
+    /// <param name= "amount">An int representing the amount of stars to be added</param>
+    /// <br />
+    /// <remarks>
+    /// This calls the AddStars function in StarDisplay and is called 
+    /// from an animation event on the trophy prefab(I needed a way of accessing AddStars)
+    /// </remarks>
+    public void AddStars(int amount)
+    {
+        FindObjectOfType<StarDisplay>().AddStars(amount);
+    }
 
     #endregion // PUBLIC FUNCTIONS
 
