@@ -44,19 +44,14 @@ public class Projectile : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
 
-	private float projectileSpeed;
-	private float rotationSpeed;
-	[SerializeField] private float damage;
+	[SerializeField] private float projectileSpeed = 2.0f;
+	[SerializeField] private float damage = 100.0f;
 
 	#endregion // PRIVATE VARIABLES
 
 	#region UNITY FUNCTIONS
-    void Start()
-    {
-		Initialize();
-    }
 
-    void Update()
+    private void Update()
     {
 		Fire();
 		//Debug.Log("Firing!");
@@ -84,22 +79,10 @@ public class Projectile : MonoBehaviour
 
 	#region PRIVATE FUNCTIONS
 
-	/// <summary>Initializes variables</summary>
-	/// <br />
-	/// <remarks> Acts as a sort of constructor</remarks>
-	private void Initialize()
-	{
-		projectileSpeed = 5.0f;
-		rotationSpeed = 45.0f;
-		damage = 100.0f;
-	}
-	
 	/// <summary>Fires projectile</summary>
 	private void Fire()
 	{
-		//Debug.Log("Firing!");
 		transform.Translate(projectileSpeed * Time.deltaTime, 0.0f, 0.0f, Space.World);
-		transform.Rotate(0.0f, 0.0f, rotationSpeed);
 	}
 
 	#endregion // PRIVATE FUNCTIONS
