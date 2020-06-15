@@ -39,7 +39,7 @@ using UnityEngine.UI;
 #endregion // USING DIRECTIVES
 
 
-#region DEFENDER BUTTON CLASS DEFINITION
+#region DEFENDERBUTTON CLASS DEFINITION
 public class DefenderButton : MonoBehaviour
 {
     #region PUBLIC VARIABLES
@@ -50,7 +50,7 @@ public class DefenderButton : MonoBehaviour
 
     private Color buttonColor;
 
-    [SerializeField] Defender defenderPrefab;
+    [SerializeField] Defender defenderPrefab = null;
 
 
     #endregion // PRIVATE VARIABLES
@@ -60,11 +60,6 @@ public class DefenderButton : MonoBehaviour
     private void Start()
     {
         buttonColor = Color.white;
-    }
-
-    private void Update()
-    {
-
     }
 
     /// <summary>
