@@ -125,7 +125,7 @@ public class DefenderSpawner : MonoBehaviour
     private void AttemptToPlaceDefenderAt(Vector2 gridPosition)
     {
         // Prvents nullReferenceException if the player has not selected a defender
-        if(defender == null)
+        if(!defender)
         {
             return;
         }

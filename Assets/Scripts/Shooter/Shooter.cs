@@ -124,7 +124,7 @@ public class Shooter : MonoBehaviour
 	{
 		// if there is no lane spawner in the lane
 			// return false (without this (Unity will throw a nullReferenceException)
-		if(myLaneSpawner == null)
+		if(!myLaneSpawner)
 		{
 			Debug.Log("No spawner detected!");
 			return false;
