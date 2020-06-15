@@ -46,15 +46,14 @@ using UnityEngine.SceneManagement; /* So we can use scene manager */
 public class LevelLoader : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
-
     int currentSceneIndex;
-    [SerializeField] int timeUntilSceneLoads;
+    [SerializeField] int timeUntilSceneLoads = 3;
 
     #endregion // PRIVATE VARIABLES
 
     #region UNITY FUNCTIONS
 
-    void Start()
+    private void Start()
     {
 		Initialize();
         LoadStart();
@@ -70,7 +69,6 @@ public class LevelLoader : MonoBehaviour
 	private void Initialize()
 	{
 		currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-		timeUntilSceneLoads = 3;
 	}
 
 	/// <summary>Loads the start scene</summary>
