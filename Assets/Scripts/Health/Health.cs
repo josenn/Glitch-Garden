@@ -39,26 +39,18 @@ using UnityEngine;
 #endregion // USING DIRECTIVES
 
 #region HEALTH CLASS DEFINITION
+
 public class Health : MonoBehaviour
 {
 	 #region PRIVATE VARIABLES
 
-	[SerializeField] private float health;
-    [SerializeField] private ParticleSystem deathFX;
+	[SerializeField] private float health = 100.0f;
+    [SerializeField] private ParticleSystem deathFX = null;
 
 	#endregion // PRIVATE VARIABLES
 
 	#region UNITY FUNCTIONS
-    void Start()
-    {
-        health = 100.0f;
-    }
-
-    void Update()
-    {
-		//Debug.Log("Firing!");
-    }
-
+ 
 	#endregion // UNITY FUNCTIONS
 
     #region PUBLIC FUNCTIONS
