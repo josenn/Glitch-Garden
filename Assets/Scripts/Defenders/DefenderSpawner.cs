@@ -127,6 +127,7 @@ public class DefenderSpawner : MonoBehaviour
         // Prvents nullReferenceException if the player has not selected a defender
         if(!defender)
         {
+            Debug.Log("No defender selected!"); // TODO Give the player feedback if they have not selected a defender
             return;
         }
 
@@ -143,14 +144,16 @@ public class DefenderSpawner : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough stars!!");
+            Debug.Log("Not enough stars!!"); // TODO Give player some sort of feedback if they do not have enough stars to place a defender
         }
     }
 
 	#endregion // PRIVATE FUNCTIONS
 
+    // This is a list of TODOS currently in this file (for convenience) -- Need to update this in other files as well
 	#region TODOS
     // TODO Give player some sort of feedback if they do not have enough stars to place a defender
+    // TODO Give the player feedback if they have not selected a defender
 	#endregion // TODOS
 
 } // Class DefenderSpawner
