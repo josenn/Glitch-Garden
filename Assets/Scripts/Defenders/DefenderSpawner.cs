@@ -52,16 +52,6 @@ public class DefenderSpawner : MonoBehaviour
 
     #region UNITY FUNCTIONS
 
-    private void Start()
-    {
-        
-    }
-
-    private void Update()
-    {
-
-    }
-
     /// <summary>
     /// OnMouseDown is called when the user has pressed the mouse button while
     /// over the GUIElement or Collider.
@@ -69,7 +59,7 @@ public class DefenderSpawner : MonoBehaviour
     private void OnMouseDown()
     {
         //Debug.Log("Mouse has been clicked!!");
-        SpawnDefender(GetSquareClicked());
+        AttemptToPlaceDefenderAt(GetSquareClicked());
     }
 
     #endregion // UNITY FUNCTIONS
@@ -125,10 +115,42 @@ public class DefenderSpawner : MonoBehaviour
         //Debug.Log(roundedPosition);
     }
 
+    /// <summary>
+    /// Attempts to spawn a defender at the position given. 
+    /// If successful spawns a defender and decreases (spends) stars based on the defender's cost
+    /// if unsuccessful gives the player some kind of feedback indicating a lack of stars (scroll to see more)
+    /// </summary>
+    /// <br />
+    /// <param name= "gridPosition">A Vector2 representing the grid position to spawn the defender</param>
+    private void AttemptToPlaceDefenderAt(Vector2 gridPosition)
+    {
+        // Prvents nullReferenceException if the player has not selected a defender
+        if(defender == null)
+        {
+            return;
+        }
+
+        var starDisplay = FindObjectOfType<StarDisplay>();
+        int defenderCost = defender.GetStarCost();
+
+        // if we have aenough stars -- KEEPING THIS PSEUDOCODE HERE AS AN EXAMPLE AND REMINDER TO MYSELF
+            // spawn defender
+            // spend stars
+        if(starDisplay.HasEnoughStars(defenderCost))
+        {
+            SpawnDefender(gridPosition);
+            starDisplay.SpendStars(defenderCost);
+        }
+        else
+        {
+            Debug.Log("Not enough stars!!");
+        }
+    }
+
 	#endregion // PRIVATE FUNCTIONS
 
 	#region TODOS
-
+    // TODO Give player some sort of feedback if they do not have enough stars to place a defender
 	#endregion // TODOS
 
 } // Class DefenderSpawner
