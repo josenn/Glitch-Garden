@@ -44,36 +44,104 @@ public class Shooter : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
 	
-	[SerializeField] private GameObject projectile, gun; // Might make this another type in the future to tighten it up
+	[SerializeField] private GameObject projectile = null, gun = null;
+	private AttackerSpawner myLaneSpawner;
+	Animator animator;
 
 	#endregion
 
 	#region UNITY FUNCTIONS
 
-    void Start()
-    {
+	private void Start()
+	{
+		animator = GetComponent<Animator>();
+		SetLaneSpawner();
+	}
 
-    }
+	private void Update()
+	{
+		if(IsAttackerInLane())
+		{
+			animator.SetBool("isAttacking", true);
 
-    void Update()
-    {
+		}
+		else
+		{	
+			animator.SetBool("isAttacking", false);
+		}
+	}
 
-    }
-	
 	#endregion
 
 	#region PRIVATE FUNCTIONS
 
 	/// <summary>Instantiates projectile</summary>
 	/// <br />
-	/// <remarks>Called from animation event</remarks>
+	/// <remarks>Called from animation event on defenders</remarks>
 	private void MakeProjectile()
 	{
 		//Debug.Log("Fire!");
 		Instantiate(projectile, gun.transform.position, Quaternion.identity);
 	}
 
-	#endregion
+	/// <summary>Sets the spawner in a defenders lane</summary>
+	/// <br />
+	/// <remarks>If a defender and a spawner have the same y value for their transform they are in the same lane</remarks>
+	private void SetLaneSpawner()
+	{
+		AttackerSpawner[] attackerSpawners = FindObjectsOfType<AttackerSpawner>();
+     
+		foreach(AttackerSpawner attackerSpawner in attackerSpawners)
+		{
+			#region SETLANESPAWNER LONG COMMENT
+
+			// This is so the Cactus (shooter) knows if there's an attacker on his lane.
+            // If the spawner and defender are on the same lane, that means their Y axis is 0.
+            // We don't use 0 here because computers love messing up with numbers so we use 
+			// "Mathf.Episolon" which means: smallest number found.
+            // (Mathf.Abs()) is for when you don't want a negative number, it will make it positive (absolute).
+			
+			#endregion
+
+			bool isCloseEnough = (Mathf.Abs(attackerSpawner.transform.position.y - transform.position.y) <= Mathf.Epsilon);
+
+			// If I look in the array and find someone who's on the same Y axis...
+			if(isCloseEnough)
+			{
+				// Then I'll consider it "my spawner" and I can apply some methods on him only and not mess with the others.
+				myLaneSpawner = attackerSpawner;
+			}
+		}
+	}
+
+	/// <summary>Is there an attacker currently in your lane?</summary>
+	/// <br />
+	/// <para>
+	/// Checks if the laneSpawner in the defender's lane has any children. 
+	/// If it does we know there is an attacker in the lane
+	/// </para>
+	private bool IsAttackerInLane()
+	{
+		// if there is no lane spawner in the lane
+			// return false (without this (Unity will throw a nullReferenceException)
+		if(myLaneSpawner == null)
+		{
+			Debug.Log("No spawner detected!");
+			return false;
+		}
+
+		// if my lane spawner child count is less than or equal to 0
+			// return false
+		if(myLaneSpawner.transform.childCount <= 0)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	#endregion // PRIVATE FUNCTIONS
+
 } // Class Shooter
 
-#endregion
+#endregion // CLASS DEFINITION
