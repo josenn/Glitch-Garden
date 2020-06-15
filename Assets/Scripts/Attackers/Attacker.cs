@@ -44,17 +44,13 @@ public class Attacker : MonoBehaviour
 	#region PRIVATE VARIABLES
 
 	private float currentSpeed;
+	private GameObject currentTarget; // Might change type later
 
 	#endregion // PRIVATE VARIABLES
 
 	#region UNITY FUNCTIONS
 
-    void Start()
-    {
-		Initialize();
-    }
-	
-    void Update()
+    private void Update()
     {
 		MoveAttacker();
     }
@@ -67,24 +63,25 @@ public class Attacker : MonoBehaviour
 	/// <br />
 	/// <param name= "speed">A float representing the speed to set</param>
 	/// <br />
-	/// <remarks> This function is called from an animation event</remarks>
+	/// <remarks>This function is called from an animation event on an attacker</remarks>
 	public void SetMovementSpeed(float speed)
 	{
 		//Debug.Log("Setting the movement speed");
 		currentSpeed = speed;
 	}
+
+	/// <summary>Makes an attacker attack</summary>
+	/// <br />
+	/// <param name="target">The GameObject to target for an attack</param>
+	public void Attack(GameObject target)
+	{
+		GetComponent<Animator>().SetBool("isAttacking", true); // Change animation state
+		currentTarget = target;
+	}
 	
 	#endregion // PUBLIC FUNCTIONS
 
 	#region PRIVATE FUNCTIONS
-
-	/// <summary>Initializes variables</summary>
-	/// <br />
-	/// <remarks> Acts as a sort of constructor</remarks>
-	private void Initialize()
-	{
-		currentSpeed = 1f;
-	}
 
 	/// <summary> Moves attackers</summary>
 	private void MoveAttacker()
