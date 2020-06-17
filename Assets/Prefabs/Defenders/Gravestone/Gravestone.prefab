@@ -12,9 +12,11 @@ GameObject:
   - component: {fileID: 8278702612811797972}
   - component: {fileID: 3173663987816308748}
   - component: {fileID: 7661527273287212701}
+  - component: {fileID: 6488983928452408493}
+  - component: {fileID: -2738476201139691644}
   m_Layer: 0
   m_Name: Gravestone
-  m_TagString: Untagged
+  m_TagString: Gravestone
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,7 +81,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0028403997, y: 0.006165266}
+  m_Offset: {x: 0.004925251, y: 0.010754287}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -90,8 +92,34 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.0435545, y: 1.0123305}
+  m_Size: {x: 1.000906, y: 1.0031525}
   m_EdgeRadius: 0
+--- !u!114 &6488983928452408493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724832618279943548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f3178fb4c5f91643ade05e2650bb88b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 300
+  deathFX: {fileID: 2346155108926312533, guid: fb3746126d8ea0a49882d8dc4c7cf9b8, type: 3}
+--- !u!114 &-2738476201139691644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 724832618279943548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92e382c8ea8b5704fb43b42ce6235e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2110810083890689267
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,7 +131,7 @@ GameObject:
   - component: {fileID: 400429838048005706}
   - component: {fileID: 3101756097756198210}
   m_Layer: 0
-  m_Name: Body
+  m_Name: GravestoneBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -13,7 +13,7 @@ GameObject:
   m_Layer: 0
   m_Name: AttackerSpawner
   m_TagString: Untagged
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -43,5 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13ed661421be4d14785d179b75e548dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackerPrefab: {fileID: 7966166625535255454, guid: 594658fb66ef1a64da0657a7615a88c1,
-    type: 3}
+  spawnAttackers: 1
+  minTimeUntilSpawn: 0
+  maxTimeUntilSpawn: 5
+  attackerPrefab: {fileID: 0}
