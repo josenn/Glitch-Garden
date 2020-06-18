@@ -43,16 +43,25 @@ public class Attacker : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
 
-	private float currentSpeed;
+	[SerializeField]private float currentSpeed = 1;
 	private GameObject currentTarget; // Might change type later
+	private Animator attackerAnimator;
+
+	[SerializeField] private int damage = 5; // The amount of damage Attackers do to the player's base
 
 	#endregion // PRIVATE VARIABLES
 
 	#region UNITY FUNCTIONS
 
+	private void Start()
+	{
+		attackerAnimator = GetComponent<Animator>();
+	}
+
     private void Update()
     {
 		MoveAttacker();
+		CheckForTarget();
     }
 
 	#endregion // UNITY FUNCTIONS
@@ -75,8 +84,27 @@ public class Attacker : MonoBehaviour
 	/// <param name="target">The GameObject to target for an attack</param>
 	public void Attack(GameObject target)
 	{
-		GetComponent<Animator>().SetBool("isAttacking", true); // Change animation state
+		attackerAnimator.SetBool("isAttacking", true); // Change animation state
 		currentTarget = target;
+	}
+
+	/// <summary></summary>
+	public void StrikeCurrentTarget(float damage)
+	{
+		// if you don't have a current target do nothing
+		if(!currentTarget) { return; }
+
+		Health health = currentTarget.GetComponent<Health>();
+
+		if(health)
+		{
+			health.DealDamage(damage);
+		}
+	}
+
+	public int GetDamage()
+	{
+		return damage;
 	}
 	
 	#endregion // PUBLIC FUNCTIONS
@@ -87,6 +115,15 @@ public class Attacker : MonoBehaviour
 	private void MoveAttacker()
 	{
 		transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
+	}
+
+	///<summary>Checks to see if an attacker has a currentTarget, if not changes animation to state to walking</summary>
+	private void CheckForTarget()
+	{
+		if(!currentTarget)
+		{
+			attackerAnimator.SetBool("isAttacking", false); 
+		}
 	}
 
 	#endregion // PRIVATE FUNCTIONS
