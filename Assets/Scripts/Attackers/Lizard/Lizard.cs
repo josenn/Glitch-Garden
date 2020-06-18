@@ -47,7 +47,6 @@ public class Lizard : MonoBehaviour
 
 	#region PRIVATE VARIABLES
 
-
     #endregion // PRIVATE VARIABLES
 
     #region UNITY FUNCTIONS
