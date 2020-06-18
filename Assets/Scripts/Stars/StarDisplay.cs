@@ -48,7 +48,7 @@ public class StarDisplay : MonoBehaviour
 	#region PRIVATE VARIABLES
     [SerializeField] private int amountOfStars = 100;
 
-    Text starText;
+    private Text starText;
 
     #endregion // PRIVATE VARIABLES
 
