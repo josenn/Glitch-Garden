@@ -50,7 +50,7 @@ public class Health : MonoBehaviour
 	#endregion // PRIVATE VARIABLES
 
 	#region UNITY FUNCTIONS
- 
+
 	#endregion // UNITY FUNCTIONS
 
     #region PUBLIC FUNCTIONS
@@ -67,6 +67,14 @@ public class Health : MonoBehaviour
             TriggerDeathFX();
             Destroy(gameObject);
         }
+    }
+
+    /// <summary>Gets an Attacker or Defender's health</summary>
+    /// <br />
+    /// <returns>A float representing the health of an Attacker or Defender</returns>
+    public float GetHealth()
+    {
+        return health;
     }
 
     #endregion // PUBLIC FUNCTIONS
