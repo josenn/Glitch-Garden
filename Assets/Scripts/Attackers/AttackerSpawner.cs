@@ -42,18 +42,18 @@ public class AttackerSpawner : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
 
-	bool spawnAttackers;
-	float minTimeUntilSpawn;
-	float maxTimeUntilSpawn;
+	[SerializeField] bool spawnAttackers = true;
+	[SerializeField] float minTimeUntilSpawn = 0.0f;
+	[SerializeField] float maxTimeUntilSpawn = 5.0f;
 
-	[SerializeField] Attacker attackerPrefab = null;
+	[SerializeField] Attacker[] attackerPrefabs = null;
 
 	#endregion // PRIVATE VARIABLES
 
 	#region UNITY FUNCTIONS
     private IEnumerator Start()
 	{
-		Initialize();
+		//Initialize();
 		while(spawnAttackers) // No end condition yet but that's okay!
 		{
 			yield return new WaitForSeconds(Random.Range(minTimeUntilSpawn, maxTimeUntilSpawn));
@@ -67,19 +67,25 @@ public class AttackerSpawner : MonoBehaviour
 
 	/// <summary>Initializes variables</summary>
 	/// <remarks> Acts as a sort of constructor</remarks>
-	private void Initialize()
+	/*private void Initialize()
 	{
 		spawnAttackers = true;
 		minTimeUntilSpawn = 0;
 		maxTimeUntilSpawn = 5;
+	}*/
+
+	private void Spawn(Attacker attacker)
+	{
+		Attacker newAttacker = Instantiate(attacker, transform.position, Quaternion.identity);
+
+		newAttacker.transform.parent = transform; // Makes newAttacker the child of any AttackerSpawner
 	}
 
 	/// <summary>Spawns attackers</summary>
 	private void SpawnAttackers()
 	{
-		Attacker newAttacker = Instantiate(attackerPrefab, transform.position, Quaternion.identity) as Attacker;
-
-		newAttacker.transform.parent = transform; // Makes newAttacker the child of any AttackerSpawner
+		var attackerIndex = Random.Range(0, attackerPrefabs.Length);
+		Spawn(attackerPrefabs[attackerIndex]);
 	}
 
 	#endregion // PRIVATE SUBROTINES
