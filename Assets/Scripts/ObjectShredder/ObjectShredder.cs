@@ -38,6 +38,7 @@ using UnityEngine;
 #endregion // USING DIRECTIVES
 
 #region OBJECTSHREDDER CLASS DEFINITION
+/// <summary>Base class for Object Shredders</summary>
 public class ObjectShredder : MonoBehaviour
 {
     #region UNITY FUNCTIONS

@@ -38,21 +38,14 @@ using UnityEngine;
 #endregion // USING DIRECTIVES
 
 #region DEFENDER CLASS DEFINITION
+/// <summary>Base class for Defenders</summary>
 public class Defender : MonoBehaviour
 {
-    #region PUBLIC VARIABLES
-
-    #endregion // PUBLIC VARIABLES
-
 	#region PRIVATE VARIABLES
 
     [SerializeField] private int starCost = 100;
 
     #endregion // PRIVATE VARIABLES
-
-    #region UNITY FUNCTIONS
-
-    #endregion // UNITY FUNCTIONS
 
     #region PUBLIC FUNCTIONS
 
@@ -78,15 +71,6 @@ public class Defender : MonoBehaviour
     }
 
     #endregion // PUBLIC FUNCTIONS
-
-	#region PRIVATE FUNCTIONS
-
-	#endregion // PRIVATE FUNCTIONS
-
-	#region TODOS
-
-	#endregion // TODOS
-
 } // Class Defender
 
 #endregion // CLASS DEFINITION

@@ -38,48 +38,24 @@ using UnityEngine;
 #endregion // USING DIRECTIVES
 
 #region LIZARD CLASS DEFINITION
-
+/// <summary>Base class for Lizard Attackers</summary>
+/// <remarks>Lizards do not have a special ability</summary>
 public class Lizard : MonoBehaviour
 {
-    #region PUBLIC VARIABLES
-
-    #endregion // PUBLIC VARIABLES
-
-	#region PRIVATE VARIABLES
-
-    #endregion // PRIVATE VARIABLES
-
     #region UNITY FUNCTIONS
 
-    /// <summary>
-    /// Sent when another object enters a trigger collider attached to this
-    /// object (2D physics only).
-    /// </summary>
-    /// <param name="other">The other Collider2D involved in this collision.</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameObject otherObject = other.gameObject;
 
-        if(otherObject.GetComponent<Defender>())
+        if(otherObject.GetComponent<Defender>()) // If it's a Defender
         {
-            GetComponent<Attacker>().Attack(otherObject);
+            GetComponent<Attacker>().Attack(otherObject); // Attack
         }
     }
 
     #endregion // UNITY FUNCTIONS
-
-    #region PUBLIC FUNCTIONS
-
-    #endregion // PUBLIC FUNCTIONS
-
-	#region PRIVATE FUNCTIONS
-
-	#endregion // PRIVATE FUNCTIONS
-
-	#region TODOS
-
-	#endregion // TODOS
-
+    
 } // Class Lizard
 
 #endregion // CLASS DEFINITION

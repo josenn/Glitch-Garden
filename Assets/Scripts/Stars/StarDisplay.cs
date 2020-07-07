@@ -38,14 +38,11 @@ using UnityEngine.UI;
 #endregion // USING DIRECTIVES
 
 #region STARDISPLAY CLASS DEFINITION
-
+/// <summary>Base class for the Star Display</summary>
 public class StarDisplay : MonoBehaviour
 {
-    #region PUBLIC VARIABLES
-
-    #endregion // PUBLIC VARIABLES
-
 	#region PRIVATE VARIABLES
+
     [SerializeField] private int amountOfStars = 100;
 
     private Text starText;

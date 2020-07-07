@@ -36,8 +36,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #endregion // USING DIRECTIVES
-
-
+/// <summary>Base class for Gravestone Defenders</summary>
 #region GRAVESTONE CLASS DEFINITION
 public class Gravestone : MonoBehaviour
 {

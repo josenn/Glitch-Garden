@@ -39,14 +39,15 @@ using UnityEngine;
 #endregion
 
 #region SHOOTER CLASS DEFINITION
-
+/// <summary>Base class for shooting projectiles</summary>
 public class Shooter : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
 	
-	[SerializeField] private GameObject projectile = null, gun = null;
+	[SerializeField] private Projectile projectile = null;
+	[SerializeField] private GameObject gun = null;
 	private AttackerSpawner myLaneSpawner;
-	Animator animator;
+	private Animator animator;
 
 	#endregion
 
@@ -80,8 +81,7 @@ public class Shooter : MonoBehaviour
 	/// <remarks>Called from animation event on defenders</remarks>
 	private void MakeProjectile()
 	{
-		//Debug.Log("Fire!");
-		Instantiate(projectile, gun.transform.position, Quaternion.identity);
+		Projectile newProjectile = Instantiate(projectile, gun.transform.position, Quaternion.identity, gun.transform);
 	}
 
 	/// <summary>Sets the spawner in a defenders lane</summary>

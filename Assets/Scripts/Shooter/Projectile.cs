@@ -39,7 +39,7 @@ using UnityEngine;
 #endregion // USING DIRECTIVES
 
 #region PROJECTILE CLASS DEFINITION
-
+/// <summary>Base class for projectiles</summary>
 public class Projectile : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
@@ -54,14 +54,8 @@ public class Projectile : MonoBehaviour
     private void Update()
     {
 		Fire();
-		//Debug.Log("Firing!");
     }
 
-	/// <summary>
-	/// Sent when another object enters a trigger collider attached to this
-	/// object (2D physics only).
-	/// </summary>
-	/// <param name="other">The other Collider2D involved in this collision.</param>
 	private void OnTriggerEnter2D(Collider2D other)
 	{
 		var health = other.GetComponent<Health>();

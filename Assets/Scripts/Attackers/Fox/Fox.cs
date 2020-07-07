@@ -37,14 +37,12 @@ using UnityEngine;
 
 #endregion // USING DIRECTIVES
 
-
 #region FOX CLASS DEFINITION
+/// <summary>Base class for Fox Attackers</summary>
+/// <br />
+/// <remarks>Fox's special is the ability to jump over Gravestone Defenders</remarks>
 public class Fox : MonoBehaviour
 {
-    #region PUBLIC VARIABLES
-
-    #endregion // PUBLIC VARIABLES
-
 	#region PRIVATE VARIABLES
 
     private Animator foxAnimator;
@@ -58,20 +56,15 @@ public class Fox : MonoBehaviour
         foxAnimator = GetComponent<Animator>();
     }
 
-    /// <summary>
-    /// Sent when another object enters a trigger collider attached to this
-    /// object (2D physics only).
-    /// </summary>
-    /// <param name="other">The other Collider2D involved in this collision.</param>
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameObject otherObject = other.gameObject;
 
-        if(otherObject.GetComponent<Gravestone>())
+        if(otherObject.GetComponent<Gravestone>()) // Trigger jump to get past the Gravestone Defender
         {
             TriggerJump();
         }
-        else if(otherObject.GetComponent<Defender>())
+        else if(otherObject.GetComponent<Defender>()) // Attack if it is any other Defender
         {
             GetComponent<Attacker>().Attack(otherObject);
         }
@@ -79,22 +72,16 @@ public class Fox : MonoBehaviour
 
     #endregion // UNITY FUNCTIONS
 
-    #region PUBLIC FUNCTIONS
-
-    #endregion // PUBLIC FUNCTIONS
-
 	#region PRIVATE FUNCTIONS
 
+    /// <summary>Trigger Fox jump animation</summary>
+    /// <remarks>Uses foxAnimator to set a trigger that triggers the jump animation</remarks>
     private void TriggerJump()
     {
         foxAnimator.SetTrigger("jumpTrigger");
     }
 
 	#endregion // PRIVATE FUNCTIONS
-
-	#region TODOS
-
-	#endregion // TODOS
 
 } // Class Fox
 
