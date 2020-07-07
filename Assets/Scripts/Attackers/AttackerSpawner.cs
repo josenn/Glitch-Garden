@@ -38,23 +38,25 @@ using UnityEngine;
 #endregion // USING DIRECTIVES
 
 #region CLASS DEFINITION
+/// <summary>Base class for Attacker Spawners</summary>
 public class AttackerSpawner : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
 
-	[SerializeField] bool spawnAttackers = true;
-	[SerializeField] float minTimeUntilSpawn = 0.0f;
-	[SerializeField] float maxTimeUntilSpawn = 5.0f;
-
+	[SerializeField] private bool spawnAttackers = true;
+	[SerializeField] private float minTimeUntilSpawn = 0.0f;
+	[SerializeField] private float maxTimeUntilSpawn = 5.0f;
 	[SerializeField] Attacker[] attackerPrefabs = null;
 
 	#endregion // PRIVATE VARIABLES
 
 	#region UNITY FUNCTIONS
+
     private IEnumerator Start()
 	{
-		//Initialize();
-		while(spawnAttackers) // No end condition yet but that's okay!
+		//yield return new WaitForSeconds(30); delay spawning so player can get a little prepared.
+
+		while(spawnAttackers)
 		{
 			yield return new WaitForSeconds(Random.Range(minTimeUntilSpawn, maxTimeUntilSpawn));
 			SpawnAttackers();
