@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Attacker
+  - Fox
   - Gravestone
   layers:
   - Default
@@ -57,4 +57,7 @@ TagManager:
     locked: 0
   - name: Particles
     uniqueID: 1406834553
+    locked: 0
+  - name: UI
+    uniqueID: 2620838815
     locked: 0
