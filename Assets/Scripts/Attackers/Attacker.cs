@@ -53,6 +53,13 @@ public class Attacker : MonoBehaviour
 
 	#region UNITY FUNCTIONS
 
+	private void Awake() // First thing in execution order
+	{
+		levelController = FindObjectOfType<LevelController>();
+
+		levelController.AttackerSpawned();
+	}
+
 	private void Start()
 	{
 		attackerAnimator = GetComponent<Animator>();
@@ -63,6 +70,17 @@ public class Attacker : MonoBehaviour
 		MoveAttacker();
 		CheckForTarget();
     }
+
+	private void OnDestroy() // Last thing in execution order
+	{
+		// Handles NullReferenceExceptions
+		if(!levelController)
+		{
+			return;
+		}
+
+		levelController.AttackerKilled();
+	}
 
 	#endregion // UNITY FUNCTIONS
 
