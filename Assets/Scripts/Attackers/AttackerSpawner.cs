@@ -63,34 +63,35 @@ public class AttackerSpawner : MonoBehaviour
 		}
 	}
 
+	/// <summary>Stops spawning Attackers</summary>
+	public void StopSpawning()
+	{
+		spawnAttackers = false;
+	}
+
 	#endregion // UNITY FUNCTIONS
 
 	#region PRIVATE FUNCTIONS
 
-	/// <summary>Initializes variables</summary>
-	/// <remarks> Acts as a sort of constructor</remarks>
-	/*private void Initialize()
-	{
-		spawnAttackers = true;
-		minTimeUntilSpawn = 0;
-		maxTimeUntilSpawn = 5;
-	}*/
-
+	/// <summary>Spawns an Attacker</summary>
+	/// <br />
+	/// <param name="attacker">The attacker to be spawned</param>
 	private void Spawn(Attacker attacker)
 	{
-		Attacker newAttacker = Instantiate(attacker, transform.position, Quaternion.identity);
-
-		newAttacker.transform.parent = transform; // Makes newAttacker the child of any AttackerSpawner
+		Attacker newAttacker = Instantiate(attacker, transform.position, Quaternion.identity, transform);
 	}
 
 	/// <summary>Spawns attackers</summary>
 	private void SpawnAttackers()
 	{
-		var attackerIndex = Random.Range(0, attackerPrefabs.Length);
-		Spawn(attackerPrefabs[attackerIndex]);
+		if(spawnAttackers)
+		{
+			var attackerIndex = Random.Range(0, attackerPrefabs.Length); // Select a random Attacker
+			Spawn(attackerPrefabs[attackerIndex]); // Spawn them
+		}
 	}
 
-	#endregion // PRIVATE SUBROTINES
+	#endregion // PRIVATE FUNCTIONS
 	
 } // Class AttackerSpawner
 
