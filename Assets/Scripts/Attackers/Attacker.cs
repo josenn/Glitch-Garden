@@ -20,8 +20,8 @@
 **                                                               **
 **     This script controls the attackers that are in the game   **
 **     Attackers are the same thing as enemies                   **
-**     Variables and subroutine descriptions will be present     **
-**     with said variables and FUNCTIONS                         **
+**     Variables and function descriptions will be present       **
+**     with said variables and functions                         **
 **                                                               **
 **                                                               **
 ******************************************************************/
@@ -39,15 +39,17 @@ using UnityEngine;
 #endregion // USING DIRECTIVES
 
 #region ATTACKER CLASS DEFINITION
+/// <summary>Base class for Attackers</summary>
 public class Attacker : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
 
+	[SerializeField] private int damageDealtToBase = 5; // The amount of damage Attackers do to the player's base
 	[SerializeField]private float currentSpeed = 1;
-	private GameObject currentTarget; // Might change type later
+	//private const string FOX = "Fox";
+	private GameObject currentTarget; // The current target for an attack
 	private Animator attackerAnimator;
-
-	[SerializeField] private int damage = 5; // The amount of damage Attackers do to the player's base
+	private LevelController levelController;
 
 	#endregion // PRIVATE VARIABLES
 
@@ -93,7 +95,6 @@ public class Attacker : MonoBehaviour
 	/// <remarks>This function is called from an animation event on an attacker</remarks>
 	public void SetMovementSpeed(float speed)
 	{
-		//Debug.Log("Setting the movement speed");
 		currentSpeed = speed;
 	}
 
@@ -106,36 +107,43 @@ public class Attacker : MonoBehaviour
 		currentTarget = target;
 	}
 
-	/// <summary></summary>
+	/// <summary>Attacks the current target</summary>
+	/// <br />
+	/// <param name="damage">A float representing the damage to be dealt</param>
+	/// <remarks>This function is triggered from an animation event</param>
 	public void StrikeCurrentTarget(float damage)
 	{
 		// if you don't have a current target do nothing
-		if(!currentTarget) { return; }
+		if(!currentTarget) 
+		{ 
+			return;
+		}
 
 		Health health = currentTarget.GetComponent<Health>();
 
-		if(health)
+		if(health) // If the target has a health component
 		{
-			health.DealDamage(damage);
+			health.DealDamage(damage); // Do damage
 		}
 	}
 
+	/// <summary>Gets the damage an Attacker does to the playerBase</summary>
 	public int GetDamage()
 	{
-		return damage;
+		return damageDealtToBase;
 	}
 	
 	#endregion // PUBLIC FUNCTIONS
 
 	#region PRIVATE FUNCTIONS
 
-	/// <summary> Moves attackers</summary>
+	/// <summary>Moves attackers</summary>
 	private void MoveAttacker()
 	{
 		transform.Translate(Vector2.left * Time.deltaTime * currentSpeed);
 	}
 
-	///<summary>Checks to see if an attacker has a currentTarget, if not changes animation to state to walking</summary>
+	///<summary>Checks to see if an attacker has a currentTarget, if not changes animation state to walking</summary>
 	private void CheckForTarget()
 	{
 		if(!currentTarget)
