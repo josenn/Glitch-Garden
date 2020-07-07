@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34eb060b1e92aa44596073c932665d10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile: {fileID: 330393047660874617, guid: 26e57d4df9922584eb4bfe4fd989fc55,
+  projectile: {fileID: 4247868832286902187, guid: 26e57d4df9922584eb4bfe4fd989fc55,
     type: 3}
   gun: {fileID: 6572185047632486681}
 --- !u!61 &260008358
@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3178fb4c5f91643ade05e2650bb88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  currentHealth: 100
   deathFX: {fileID: 2346155108926312533, guid: fb3746126d8ea0a49882d8dc4c7cf9b8, type: 3}
 --- !u!1 &6572185047632486681
 GameObject:

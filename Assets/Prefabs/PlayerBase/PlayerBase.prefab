@@ -70,6 +70,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f79495308b607684cba29aa9452d6f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerBaseHealth: 100
+  playerBaseHealth: 1
   timeUntilGameOverLoads: 3
   playerBaseHealthText: {fileID: 0}

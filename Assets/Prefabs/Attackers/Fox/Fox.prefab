@@ -94,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f167f74a08cf8b34d9e2405378c6917d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageDealtToBase: 5
   currentSpeed: 1
 --- !u!114 &4815569160961266824
 MonoBehaviour:
@@ -107,8 +108,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 383f99b7e04ef7b448135af79d22a372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravestonePrefab: {fileID: 724832618279943548, guid: e19568c1c916aa8428245dadc9d12daf,
-    type: 3}
 --- !u!114 &8232814835769083743
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3178fb4c5f91643ade05e2650bb88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  currentHealth: 100
   deathFX: {fileID: 2346155108926312533, guid: fb3746126d8ea0a49882d8dc4c7cf9b8, type: 3}
 --- !u!50 &1386610804
 Rigidbody2D:

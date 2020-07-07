@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -2738476201139691644}
   m_Layer: 0
   m_Name: Gravestone
-  m_TagString: Gravestone
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f3178fb4c5f91643ade05e2650bb88b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 300
+  currentHealth: 100
   deathFX: {fileID: 2346155108926312533, guid: fb3746126d8ea0a49882d8dc4c7cf9b8, type: 3}
 --- !u!114 &-2738476201139691644
 MonoBehaviour:
