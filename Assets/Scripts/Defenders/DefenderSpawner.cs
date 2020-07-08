@@ -74,6 +74,18 @@ public class DefenderSpawner : MonoBehaviour
         defender = defenderToSelect;
     }
 
+    /// <summary>Sets if the game is over or not</summary>
+    public void SetIsGameOver(bool gameOver)
+    {
+        isGameOver = gameOver;
+    }
+
+    /// <summary>Gets the bool isGameOver</summary>
+    /// <returns>isGameOver</returns>
+    public bool GetIsGameOver()
+    {
+        return isGameOver;
+    }
     #endregion // PUBLIC FUNCTIONS
 
 	#region PRIVATE FUNCTIONS
