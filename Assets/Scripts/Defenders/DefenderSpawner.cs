@@ -46,12 +46,20 @@ public class DefenderSpawner : MonoBehaviour
 
 	#region PRIVATE VARIABLES
 
+    private bool isGameOver;
+    private const string DEFENDER_PARENT_NAME = "Defenders";
     private Defender defender;
+    private GameObject defenderParent;
 
     #endregion // PRIVATE VARIABLES
 
     #region UNITY FUNCTIONS
 
+    private void Start()
+    {
+        isGameOver = false;
+        CreateDefenderParent();
+    }
     /// <summary>
     /// OnMouseDown is called when the user has pressed the mouse button while
     /// over the GUIElement or Collider.
