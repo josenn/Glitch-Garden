@@ -1,4 +1,4 @@
-#region CLASS DESCRIPTION
+﻿#region CLASS DESCRIPTION
 
 /******************************************************************
 **                                                               **
@@ -41,7 +41,6 @@ using UnityEngine.SceneManagement; /* So we can use scene manager */
 
 #endregion // USING DIRECTIVES
 
-
 #region LEVELLOADER CLASS DEFINITION
 /// <summary>Base class for LevelLoader</summary>
 /// <remarks>LevelLoader controls just that, loading between various levels or scenes</remarks>
@@ -77,15 +76,24 @@ public class LevelLoader : MonoBehaviour
     {
         SceneManager.LoadScene("OptionsScreen");
     }
+
     /// <summary>Loads the next scene</summary>
-    private void LoadNextScene()
+    public void LoadNextScene()
     {
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 
-    public void GameOver()
+    /// <summary>Restarts the current scene</summary>
+    public void RestartScene()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene(currentSceneIndex);
+        Time.timeScale = 1;
+    }
+
+    /// <summary>Quits the game</summary>
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     #endregion
@@ -118,7 +126,7 @@ public class LevelLoader : MonoBehaviour
     {
         yield return new WaitForSeconds(timeUntilSceneLoads); // Delay scene load
 
-        LoadNextScene();
+        LoadStartScene();
     }
 
 	#endregion // PRIVATE FUNCTIONS
