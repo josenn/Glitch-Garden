@@ -1,4 +1,4 @@
-#region CLASS DESCRIPTION
+﻿#region CLASS DESCRIPTION
 
 /******************************************************************
 **                                                               **
@@ -40,10 +40,6 @@ using UnityEngine;
 /// <summary>Base class for the Defender Spawner</summary>
 public class DefenderSpawner : MonoBehaviour
 {
-    #region PUBLIC VARIABLES
-
-    #endregion // PUBLIC VARIABLES
-
 	#region PRIVATE VARIABLES
 
     private bool isGameOver;
@@ -88,7 +84,7 @@ public class DefenderSpawner : MonoBehaviour
     {
         defender = defenderToSelect;
     }
-
+    
     /// <summary>Sets if the game is over or not</summary>
     public void SetIsGameOver(bool gameOver)
     {
@@ -139,8 +135,8 @@ public class DefenderSpawner : MonoBehaviour
     /// </param>
     private void SpawnDefender(Vector2 roundedPosition)
     {
-        Defender newDefender = Instantiate(defender, roundedPosition, Quaternion.identity) as Defender;
-        //Debug.Log(roundedPosition);
+        Defender newDefender = Instantiate(defender, roundedPosition, Quaternion.identity, defenderParent.transform) as Defender;
+        
     }
 
     /// <summary>
@@ -173,6 +169,18 @@ public class DefenderSpawner : MonoBehaviour
         else
         {
             Debug.Log("Not enough stars!!"); // TODO Give player some sort of feedback if they do not have enough stars to place a defender
+        }
+    }
+
+    /// <summary>Creates a parent for the spawned Defenders</summary>
+    /// <remarks>Keeps the hierarchy tidy</remarks>
+    private void CreateDefenderParent()
+    {
+        defenderParent = GameObject.Find(DEFENDER_PARENT_NAME);
+
+        if(!defenderParent)
+        {
+            defenderParent = new GameObject(DEFENDER_PARENT_NAME);
         }
     }
 
