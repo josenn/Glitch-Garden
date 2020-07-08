@@ -1,4 +1,4 @@
-﻿#region CLASS DESCRIPTION
+#region CLASS DESCRIPTION
 
 /******************************************************************
 **                                                               **
@@ -38,8 +38,8 @@ using UnityEngine.UI;
 
 #endregion // USING DIRECTIVES
 
-
-#region GAMETIMER CLASS DEFINITION
+#region GAME_TIMER CLASS DEFINITION
+/// <summary>Base class for the Game Timer</summary>
 public class GameTimer : MonoBehaviour
 {
     #region PUBLIC VARIABLES
