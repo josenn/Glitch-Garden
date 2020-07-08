@@ -1,4 +1,4 @@
-﻿#region CLASS DESCRIPTION
+#region CLASS DESCRIPTION
 
 /******************************************************************
 **                                                               **
@@ -43,6 +43,8 @@ using UnityEngine.SceneManagement; /* So we can use scene manager */
 
 
 #region LEVELLOADER CLASS DEFINITION
+/// <summary>Base class for LevelLoader</summary>
+/// <remarks>LevelLoader controls just that, loading between various levels or scenes</remarks>
 public class LevelLoader : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
