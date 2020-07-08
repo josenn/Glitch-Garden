@@ -57,14 +57,11 @@ public class GameTimer : MonoBehaviour
 
     private void Update()
     {
-        GetComponent<Slider>().value = Time.timeSinceLevelLoad / gameTime;
+        CheckLevelFinishedState();
 
-        bool timerFinished = (Time.timeSinceLevelLoad >= gameTime);
+        UpdateGameTime();
 
-        if(timerFinished)
-        {
-            Debug.Log("Game timer expired!!");
-        }
+        CheckTimerFinished();
     }
 
     #endregion // UNITY FUNCTIONS
