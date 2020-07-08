@@ -1,4 +1,4 @@
-﻿#region CLASS DESCRIPTION
+#region CLASS DESCRIPTION
 
 /******************************************************************
 **                                                               **
@@ -36,8 +36,8 @@ using UnityEngine;
 
 #endregion // USING DIRECTIVES
 
-#region DEFENDER CLASS DEFINITION
-
+#region DEFENDER_SPAWNER CLASS DEFINITION
+/// <summary>Base class for the Defender Spawner</summary>
 public class DefenderSpawner : MonoBehaviour
 {
     #region PUBLIC VARIABLES
