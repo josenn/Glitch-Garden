@@ -1,4 +1,4 @@
-#region CLASS DESCRIPTION
+﻿#region CLASS DESCRIPTION
 
 /******************************************************************
 **                                                               **
@@ -28,7 +28,6 @@
 
 #endregion // CLASS DEFINITION
 
-
 #region USING DIRECTIVES
 
 using System;
@@ -38,21 +37,16 @@ using UnityEngine.UI;
 
 #endregion // USING DIRECTIVES
 
-
 #region DEFENDERBUTTON CLASS DEFINITION
 /// <summary>Base class for the Defender Buttons that a player can select</summary>
 public class DefenderButton : MonoBehaviour
 {
-    #region PUBLIC VARIABLES
-
-    #endregion // PUBLIC VARIABLES
-
 	#region PRIVATE VARIABLES
 
     private Color buttonColor;
 
     [SerializeField] Defender defenderPrefab = null;
-
+    private Text starCostText;
 
     #endregion // PRIVATE VARIABLES
 
@@ -60,6 +54,17 @@ public class DefenderButton : MonoBehaviour
 
     private void Start()
     {
+        starCostText = GetComponentInChildren<Text>();
+
+        if(starCostText)
+        {
+            UpdateButtonCost();
+        }
+        else
+        {
+            Debug.LogError("No text component found on: " + gameObject.name);
+        }
+        
         buttonColor = Color.white;
     }
 
@@ -69,13 +74,18 @@ public class DefenderButton : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
+        if(FindObjectOfType<DefenderSpawner>().GetIsGameOver())
+        {
+            return;
+        }
+
         var buttons = FindObjectsOfType<DefenderButton>(); // Look for all of the defender buttons
 
         foreach(DefenderButton button in buttons)
         {
             button.GetComponent<Image>().color = new Color32(43, 43, 43, 255);
         }
-        //Debug.Log("You have selected a defender!!");
+        
         gameObject.GetComponent<Image>().color = buttonColor;
 
         FindObjectOfType<DefenderSpawner>().SetSelectedDefender(defenderPrefab);
@@ -83,17 +93,15 @@ public class DefenderButton : MonoBehaviour
 
     #endregion // UNITY FUNCTIONS
 
-    #region PUBLIC FUNCTIONS
-
-    #endregion // PUBLIC FUNCTIONS
-
 	#region PRIVATE FUNCTIONS
 
+    /// <summary>Updates the text component for the cost of each button</summary>
+    private void UpdateButtonCost()
+    {
+        starCostText.text = defenderPrefab.GetStarCost().ToString();
+    }
+
 	#endregion // PRIVATE FUNCTIONS
-
-	#region TODOS
-
-	#endregion // TODOS
 
 } // Class DefenderButton
 
