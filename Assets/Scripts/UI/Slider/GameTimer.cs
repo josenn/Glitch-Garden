@@ -1,4 +1,4 @@
-#region CLASS DESCRIPTION
+﻿#region CLASS DESCRIPTION
 
 /******************************************************************
 **                                                               **
@@ -42,14 +42,12 @@ using UnityEngine.UI;
 /// <summary>Base class for the Game Timer</summary>
 public class GameTimer : MonoBehaviour
 {
-    #region PUBLIC VARIABLES
-
-    #endregion // PUBLIC VARIABLES
-
 	#region PRIVATE VARIABLES
 
     [Tooltip("Game timer in seconds")]
     [SerializeField] private float gameTime = 10.0f;
+    private bool timerFinished;
+    private bool triggerLevelFinish;
 
     #endregion // PRIVATE VARIABLES
 
@@ -58,7 +56,7 @@ public class GameTimer : MonoBehaviour
     private void Update()
     {
         CheckLevelFinishedState();
-
+        
         UpdateGameTime();
 
         CheckTimerFinished();
@@ -68,15 +66,48 @@ public class GameTimer : MonoBehaviour
 
     #region PUBLIC FUNCTIONS
 
+    /// <summary>Gets the timerFinished variable</summary>
+    /// <br />
+    /// <returns>timerFinished</returns>
+    public bool GetTimerFinished()
+    {
+        return timerFinished;
+    }
+
     #endregion // PUBLIC FUNCTIONS
 
 	#region PRIVATE FUNCTIONS
 
+    /// <summary>Updates the game timer slider</summary>
+    private void UpdateGameTime()
+    {
+        GetComponent<Slider>().value = Time.timeSinceLevelLoad / gameTime;
+
+        timerFinished = (Time.timeSinceLevelLoad >= gameTime);
+    }
+
+    /// <summary>Checks if the timer has reached the end</summary>
+    private void CheckTimerFinished()
+    {
+        if(timerFinished)
+        {
+            FindObjectOfType<LevelController>().GameTimerFinished();
+            triggerLevelFinish = true;
+        }
+    }
+
+    /// <summary></summary>
+    private void CheckLevelFinishedState()
+    {
+        // if it's time to finish the level stop
+        if(triggerLevelFinish) 
+        { 
+            return; 
+        }
+
+    }
+
 	#endregion // PRIVATE FUNCTIONS
-
-	#region TODOS
-
-	#endregion // TODOS
 
 } // Class GameTimer
 
