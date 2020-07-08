@@ -65,6 +65,18 @@ public class LevelLoader : MonoBehaviour
 
     #region PUBLIC FUNCTIONS
 
+    /// <summary>Loads the start scene</summary>
+    public void LoadStartScene()
+    {
+        SceneManager.LoadScene("StartMenu");
+        Time.timeScale = 1;
+    }
+
+    /// <summary>Loads the options scene</summary>
+    public void LoadOptionsScene()
+    {
+        SceneManager.LoadScene("OptionsScreen");
+    }
     /// <summary>Loads the next scene</summary>
     private void LoadNextScene()
     {
