@@ -1,4 +1,4 @@
-﻿#region CLASS DESCRIPTION
+#region CLASS DESCRIPTION
 
 /******************************************************************
 **                                                               **
@@ -40,6 +40,7 @@ using UnityEngine.UI;
 
 
 #region DEFENDERBUTTON CLASS DEFINITION
+/// <summary>Base class for the Defender Buttons that a player can select</summary>
 public class DefenderButton : MonoBehaviour
 {
     #region PUBLIC VARIABLES
