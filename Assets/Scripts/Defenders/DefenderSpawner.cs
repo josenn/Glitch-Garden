@@ -60,6 +60,7 @@ public class DefenderSpawner : MonoBehaviour
         isGameOver = false;
         CreateDefenderParent();
     }
+
     /// <summary>
     /// OnMouseDown is called when the user has pressed the mouse button while
     /// over the GUIElement or Collider.
@@ -100,6 +101,7 @@ public class DefenderSpawner : MonoBehaviour
     {
         return isGameOver;
     }
+
     #endregion // PUBLIC FUNCTIONS
 
 	#region PRIVATE FUNCTIONS
