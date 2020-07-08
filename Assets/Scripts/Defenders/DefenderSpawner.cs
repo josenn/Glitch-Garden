@@ -58,7 +58,13 @@ public class DefenderSpawner : MonoBehaviour
     /// </summary>
     private void OnMouseDown()
     {
-        //Debug.Log("Mouse has been clicked!!");
+        // if game over
+            // prevent mouse clicks
+        if(isGameOver)
+        {
+            return;
+        }
+
         AttemptToPlaceDefenderAt(GetSquareClicked());
     }
 
