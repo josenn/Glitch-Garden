@@ -41,12 +41,9 @@ using UnityEngine.SceneManagement;
 #endregion // USING DIRECTIVES
 
 #region PLAYERBASE CLASS DEFINITION
+/// <summary>Base class for the Player's base</summary>
 public class PlayerBase : MonoBehaviour
 {
-    #region PUBLIC VARIABLES
-
-    #endregion // PUBLIC VARIABLES
-
 	#region PRIVATE VARIABLES
 
     [SerializeField] private int playerBaseHealth = 100;
@@ -93,10 +90,6 @@ public class PlayerBase : MonoBehaviour
 
     #endregion // UNITY FUNCTIONS
 
-    #region PUBLIC FUNCTIONS
-
-    #endregion // PUBLIC FUNCTIONS
-
 	#region PRIVATE FUNCTIONS
 
     /// <summary>Updates the health display for the player's base</summary>
@@ -105,19 +98,18 @@ public class PlayerBase : MonoBehaviour
         playerBaseHealthText.text = playerBaseHealth.ToString();
     }
 
-    /// <summary>Triggers the game over scene and delays the load of it for a little while</summary>
+    /// <summary>A helper for the HandleWinCondition function</summary>
     private IEnumerator TriggerGameOver()
     {
+        FindObjectOfType<DefenderSpawner>().SetIsGameOver(true);
+
         yield return new WaitForSeconds(timeUntilGameOverLoads);
 
-        FindObjectOfType<LevelLoader>().GameOver();
+        FindObjectOfType<LevelController>().HandleLoseCondition();
+
     }
     
 	#endregion // PRIVATE FUNCTIONS
-
-	#region TODOS
-
-	#endregion // TODOS
 
 } // Class PlayerBase
 
