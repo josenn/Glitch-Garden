@@ -10,14 +10,14 @@
 **                                                               **
 **      Project:             Glitch Garden                       **
 **                                                               **
-**      Module:              Defender                            **
+**      Module:              Attributes                          **
 **                                                               **
-**      File name:           Gravestone.cs                       **
+**      File name:           Attributes.cs                       **
 **                                                               **
-**      Created by:          06/17/20            - JJR           **
+**      Created by:          07/12/20            - JJR           **
 **                                                               **
-**      Description:         Controls certain properties of      **
-**                           the gravestone defender             **
+**      Description:         Holds values for Attacker           **
+**                           and Defender stats                  **
 **                                                               **
 **                                                               **
 **                                                               **
@@ -26,7 +26,8 @@
 **                                                               **
 ******************************************************************/
 
-#endregion // CLASS DEFINITION
+#endregion // STRUCT DEFINITION
+
 
 #region USING DIRECTIVES
 
@@ -35,45 +36,39 @@ using System.Collections.Generic;
 using UnityEngine;
 
 #endregion // USING DIRECTIVES
-/// <summary>Base class for Gravestone Defenders</summary>
-#region GRAVESTONE CLASS DEFINITION
-public class Gravestone : MonoBehaviour
+
+#region ATTRIBUTES STRUCT DEFINITION
+public struct Attributes
 {
-    #region PUBLIC VARIABLES
+    #region PRIVATE VARIABLES
 
-    #endregion // PUBLIC VARIABLES
-
-	#region PRIVATE VARIABLES
-
+    private float health, damage;
 
     #endregion // PRIVATE VARIABLES
 
-    #region UNITY FUNCTIONS
-
-    private void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-        
-    }
-
-    #endregion // UNITY FUNCTIONS
-
     #region PUBLIC FUNCTIONS
 
+    public float GetHealth()
+    {
+        return health;
+    }
+
+    public float GetDamage()
+    {
+        return damage;
+    }
+
+    public void SetHealth(float healthToSet)
+    {
+        health = healthToSet;
+    }
+
+    public void SetDamage(float damageToSet)
+    {
+        damage = damageToSet;
+    }
+
     #endregion // PUBLIC FUNCTIONS
+}
 
-	#region PRIVATE FUNCTIONS
-
-	#endregion // PRIVATE FUNCTIONS
-
-	#region TODOS
-
-	#endregion // TODOS
-
-} // Class Gravestone
-
-#endregion // CLASS DEFINITION
+#endregion // STRUCT DEFINITION

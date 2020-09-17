@@ -43,9 +43,18 @@ public class Defender : MonoBehaviour
 {
 	#region PRIVATE VARIABLES
 
-    [SerializeField] private int starCost = 100;
+    private int starCost;
 
     #endregion // PRIVATE VARIABLES
+
+    #region UNITY FUNCTIONS
+
+    private void Start()
+    {
+        
+    }
+
+    #endregion
 
     #region PUBLIC FUNCTIONS
 
@@ -55,6 +64,11 @@ public class Defender : MonoBehaviour
     public int GetStarCost() 
     { 
         return starCost; 
+    }
+
+    public void SetStarCost(int starCostToSet)
+    {
+        starCost = starCostToSet;
     }
 
     /// <summary>Adds stars to the current star amount</summary>
